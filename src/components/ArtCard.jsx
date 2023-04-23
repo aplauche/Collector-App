@@ -7,7 +7,7 @@ export default function ArtCard({item, imageBaseUrl}){
   return (
     <div  className="bg-white rounded-md flex flex-col shadow-md">
       <div className="cover-image">
-        <img className="rounded-tl-md rounded-tr-md" src={`${imageBaseUrl}/${item.image_id}/full/843,/0/default.jpg`} alt="" width={"100%"} />
+        <img crossOrigin="true" className="rounded-tl-md rounded-tr-md" src={`${imageBaseUrl}/${item.image_id}/full/843,/0/default.jpg`} alt="" width={"100%"} />
         <div className="date-pill">{item.date_end}</div>
       </div>
       <div className="p-5 flex flex-col justify-between items-start h-full">
