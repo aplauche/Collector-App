@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useCollectionStore from "../store/collectionStore";
+import { HiStar, HiOutlineStar } from "react-icons/hi";
 
 
 export default function ArtCard({item, imageBaseUrl}){
@@ -22,7 +23,7 @@ export default function ArtCard({item, imageBaseUrl}){
     <div  className="bg-white rounded-md flex flex-col shadow-md">
       <div className="cover-image">
         <img crossOrigin="true" className="rounded-tl-md rounded-tr-md" src={`${imageBaseUrl}/${item.image_id}/full/843,/0/default.jpg`} alt="" width={"100%"} />
-        <div className="date-pill">{item.date_end}</div>
+        <div className="pill">{item.date_end}</div>
       </div>
       <div className="p-5 flex flex-col justify-between items-start h-full">
         <div>
@@ -36,7 +37,11 @@ export default function ArtCard({item, imageBaseUrl}){
             View Details
           </Link>
           <button onClick={handleCollectionClick}>
-            FAV
+            {collection.includes(item.id) ? (
+              <HiStar className="text-3xl" />
+            ) : (
+              <HiOutlineStar className="text-3xl" />
+            )}
           </button>
         </div>
 
