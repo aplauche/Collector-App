@@ -3,6 +3,7 @@ import Layout from "./components/Layout"
 import Home from "./pages/Home"
 import Single from "./pages/Single"
 import BrowsePage from "./pages/Browse"
+import CollectionPage from "./pages/Collection"
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route path="/browse" element={<BrowsePage />} />
             <Route path="/browse/:id" element={<BrowsePage />} />
             <Route path="/artwork/:id" element={<Single />} />
+            <Route path="/collection" element={<CollectionPage />} />
           </Route>
         </Routes>
 

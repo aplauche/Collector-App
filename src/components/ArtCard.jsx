@@ -1,8 +1,22 @@
 import { Link } from "react-router-dom";
+import useCollectionStore from "../store/collectionStore";
 
 
 export default function ArtCard({item, imageBaseUrl}){
 
+
+  const {collection, addToCollection, removeFromCollection} = useCollectionStore()
+
+  console.log(collection)
+
+  const handleCollectionClick = () => {
+    if(collection.includes(item.id)){
+      console.log('remove')
+      removeFromCollection(item.id)
+    } else {
+      addToCollection(item.id)
+    }
+  }
 
   return (
     <div  className="bg-white rounded-md flex flex-col shadow-md">
@@ -17,9 +31,15 @@ export default function ArtCard({item, imageBaseUrl}){
           <p className="mb-6 text-black/50">{item.artist_display}</p>
         </div>
 
-        <Link to={`/artwork/${item.id}`} className="primary-button">
-          View Details
-        </Link>
+        <div className="w-full flex justify-between items-center">
+          <Link to={`/artwork/${item.id}`} className="primary-button">
+            View Details
+          </Link>
+          <button onClick={handleCollectionClick}>
+            FAV
+          </button>
+        </div>
+
       </div>
     </div>
   )
