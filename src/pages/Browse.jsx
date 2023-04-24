@@ -63,7 +63,7 @@ export default function BrowsePage(){
 
       <h1 className="font-bold text-4xl mb-8">Browse {categoryID ? 'Artwork Category Here' : 'All Artwork'}</h1>
       <TypesToolbar current={categoryID ? categoryID : 'all'} />
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         { data.map(item => (
           <ArtCard key={item.id} item={item} imageBaseUrl={imageBaseUrl} />
         ))}
