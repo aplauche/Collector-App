@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
-import TypesToolbar from "./TypesToolbar";
 
 
 export default function Sidebar(){

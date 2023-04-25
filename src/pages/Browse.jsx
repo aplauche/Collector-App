@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom";
 import ArtCard from "../components/ArtCard";
 import Loader from "../components/Loader";
+import LoadMore from "../components/LoadMore";
 import PageHeading from "../components/PageHeading";
 import TypesToolbar from "../components/TypesToolbar";
 
@@ -20,6 +21,7 @@ export default function BrowsePage(){
   const [totalPages, setTotalPages] = useState(1)
 
   const [loading, setLoading] = useState(true)
+  const [loadingMore, setLoadingMore] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,18 +60,21 @@ export default function BrowsePage(){
 
   const handleLoadMore = async () => {
 
+    setLoadingMore(true)
     const nextPage = page + 1
 
     try {
       const { data: res } = await axios.get(`https://api.artic.edu/api/v1/artworks${categoryID ? `/search?query[term][artwork_type_id]=${categoryID}&` : '?'}fields=id,title,image_id,date_end,place_of_origin,artist_display&limit=12&page=${nextPage}`);
 
       setData([...data, ...res.data]);
+      setPage(nextPage)
+      setLoadingMore(false)
     } catch (error) {
       // setError(error);
       console.log(error)
+      setLoadingMore(false)
     }
 
-    setPage(nextPage)
   }
 
   if(loading) return  <Loader />
@@ -88,12 +93,7 @@ export default function BrowsePage(){
       </div>
 
       {page < totalPages && (
-        <div className="flex justify-center items-center py-8 px-4">
-          <button onClick={handleLoadMore} className="primary-button bg-white border-2 border-black">
-            Load More
-          </button>
-        </div>
-
+        <LoadMore isLoading={loadingMore} handleClick={handleLoadMore} />
       )}
 
     </div>

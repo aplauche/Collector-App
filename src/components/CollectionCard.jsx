@@ -4,7 +4,7 @@ import { HiStar, HiOutlineStar, HiOutlineExternalLink, HiOutlineTrash, HiOutline
 import { SortableItem } from "react-easy-sort";
 
 
-export default function CollectionCard({item, imageBaseUrl}){
+export default function CollectionCard({item, imageBaseUrl, isSortable = true}){
 
 
   const {collection, addToCollection, removeFromCollection} = useCollectionStore()
@@ -32,11 +32,6 @@ export default function CollectionCard({item, imageBaseUrl}){
               </Link>
               <button onClick={handleCollectionClick}>
                 <HiOutlineTrash className="text-3xl text-white"/>
-                {/* {collection.includes(item.id) ? (
-                  <HiStar className="text-3xl text-white" />
-                ) : (
-                  <HiOutlineStar className="text-3xl text-white" />
-                )} */}
               </button>
        
           </div>
