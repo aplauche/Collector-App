@@ -46,7 +46,7 @@ export default function Favorites(){
 
 
   return (
-    <div className="border-2 bg-white shadow-md p-8 rounded-md mb-8">
+    <div className="border-2 bg-white shadow-md  p-4 md:p-8 rounded-md mb-8">
       <h2 className="text-xl font-bold mb-8">My Collection</h2>
 
       {loading && (
@@ -64,7 +64,7 @@ export default function Favorites(){
             <CollectionPreviewCard key={item.id} item={item} imageBaseUrl={imageBaseUrl} />
           ))}
          
-            <Link to="/collection" className="min-h-[100px] bg-neutral rounded-md font-bold  flex justify-center items-center bg-white hover:bg-primary text-center" >
+            <Link to="/collection" className="min-h-[100px] bg-neutral rounded-md font-bold  flex justify-center items-center  hover:bg-primary text-center" >
               Visit<br />Collection
             </Link>
 

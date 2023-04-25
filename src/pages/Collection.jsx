@@ -80,10 +80,12 @@ export default function CollectionPage(){
 
         <PageHeading title={"My Collection"} />
 
+        <p className="text-black/50 mb-8 pb-8 border-b border-black/50">Click and drag to arrange your collection.</p>
+
           {data.length > 0 ? (
             <SortableList
               onSortEnd={onSortEnd}
-              className="grid grid-cols-3 gap-5"
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
               draggedItemClassName="dragged"
             >
               { data.length && data.map(item => (   

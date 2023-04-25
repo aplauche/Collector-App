@@ -11,6 +11,12 @@
     display: grid;
     grid-template-columns: 300px 1fr;
   }
+
+  @media(max-width: 767px){
+    .main-content {
+      display: block;
+    }
+  }
 }
 
 @layer components {
@@ -20,8 +26,6 @@
     height: 0;
     padding-bottom: 75%;
     overflow: hidden;
-
-
   }
   .cover-image img {
     position: absolute;
@@ -31,6 +35,10 @@
     height: 100%;
     object-fit: cover;
     object-position: center center;
+  }
+
+  .cover-image.cover-image--square{
+    padding-bottom: 100%;
   }
 
   .pill {
