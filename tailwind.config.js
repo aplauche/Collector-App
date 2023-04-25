@@ -5,6 +5,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    // fontFamily: {
+    //   "heading": "Migra, serif"
+    // },
     extend: {
       colors: {
         'neutral' : {
@@ -13,6 +16,7 @@ export default {
           dark: "#24272A"
         },
         'primary': "#E8FE99",
+        // 'primary': "#B50938",
         'secondary': ""
       }
     },

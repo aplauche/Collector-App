@@ -1,0 +1,18 @@
+/* @font-face {
+  font-family: 'Migra'; 
+  src: url('./assets/PPMigra-Extralight.woff2'); 
+  font-weight: 200;
+} */
+
+@font-face {
+  font-family: 'Montreal'; 
+  src: url('./assets/PPNeueMontreal-Regular.woff2'); 
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montreal'; 
+  src: url('./assets/PPNeueMontreal-Bold.woff2'); 
+  font-weight: 700;
+  font-style: normal;
+}

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
+import { HiOutlineChevronDown } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 
@@ -23,18 +24,24 @@ export default function TypesToolbar({current = null}){
     fetchTypes();
   }, [])
 
+  useEffect(() => {
+    setOpen(false)
+  }, [current])
+
 
   return (
-    <div className="bg-white p-8 rounded-md shadow-md mb-8">
+    <div className="bg-white py-4 px-6 rounded-md shadow-md mb-8">
       <div className="w-full flex justify-between items-center">
-        <h2 className="text-3xl font-bold ">Browse By Category</h2>
-        <button onClick={() => setOpen(open => !open)} className="primary-button">
-          {open ? 'Collapse' : 'Expand'}
+        <h2 className="text-xl font-bold ">Browse By Category</h2>
+        <button onClick={() => setOpen(open => !open)} className={`flex items-center gap-4`}>
+            <div className={`${open ? 'rotate-180' : ''} bg-primary w-12 h-12 flex justify-center items-center rounded-full border border-black transition-all`}>
+              <HiOutlineChevronDown />
+            </div>
         </button>
       </div>
 
       {open && (
-        <div className="flex gap-4 flex-wrap mt-8">
+        <div className="flex gap-3 flex-wrap mt-8">
           <Link to={`/browse/`} className={`chip ${current === 'all' ? 'active': ''}`}>
             Browse All
           </Link>

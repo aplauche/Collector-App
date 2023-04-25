@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+
+  html {
+    font-family: "Montreal", sans-serif;
+  }
   .main-content {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -30,11 +34,11 @@
   }
 
   .pill {
-    @apply top-4 right-4 z-10 bg-primary border border-black rounded-full px-4 absolute
+    @apply top-4 py-1 right-4 z-10 bg-neutral-dark text-white rounded-md px-4 absolute
   }
 
   .primary-button {
-    @apply font-bold inline-block py-3 px-4 hover:bg-black hover:text-white rounded-md bg-primary text-black   transition-colors
+    @apply font-bold inline-block py-3 px-4 hover:bg-black hover:text-white rounded-md bg-primary text-black  border border-black transition-colors
   }
 
   .chip {
@@ -46,10 +50,18 @@
   }
 
   .navlink {
-    @apply py-5 px-8 hover:bg-primary hover:text-black
+    @apply font-bold py-5 px-8 hover:bg-primary hover:text-black
   }
 
   .navlink.active {
-    @apply bg-[#333333] hover:bg-[#333333] hover:text-white
+    @apply bg-[#555] hover:bg-[#555] hover:text-white
+  }
+
+  .collection-toolbar {
+    @apply p-2 top-0 right-0 absolute flex items-center gap-4 bg-black/20 -translate-y-full transition-all
+  }
+
+  .collection-card:hover .collection-toolbar {
+    @apply translate-y-0
   }
 }
