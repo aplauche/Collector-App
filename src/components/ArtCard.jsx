@@ -41,7 +41,7 @@ export default function ArtCard({item, imageBaseUrl}){
 
           <div className="w-full flex justify-between items-center">
             <Link to={`/artwork/${item.id}`} className="primary-button">
-              View Details <span className="sr-only">for {item.title}</span>
+              View Details
             </Link>
             <button onClick={handleCollectionClick}>
               {collection.includes(item.id) ? (
