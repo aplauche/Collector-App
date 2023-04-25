@@ -12,7 +12,7 @@ import Error from "../components/Error";
 
 export default function CollectionPage(){
 
-  const { collection, updateCollection, emptyCollection } = useCollectionStore()
+  const { collection, updateCollection } = useCollectionStore()
 
 
   const [imageBaseUrl, setImageBaseUrl] = useState('')
