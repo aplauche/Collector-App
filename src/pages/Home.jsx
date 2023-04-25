@@ -10,8 +10,9 @@ export default function HomePage(){
     <>
    
       <PageHeading title={`Welcome.`} />
-      <Favorites />
       <TypesToolbar />
+      <Favorites />
+
       
     </>
   )

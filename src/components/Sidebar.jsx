@@ -39,7 +39,7 @@ export default function Sidebar(){
         </nav>
 
       </div>
-      <div className="hidden md:block py-8 px-8 border-t border-neutral-600 text-neutral-400">
+      <div className="hidden md:block py-6 px-8 border-t border-neutral-600 text-neutral-400">
         <p>Data from the Art Institute of Chicago public API.</p>
       </div>
 
