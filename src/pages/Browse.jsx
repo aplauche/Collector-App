@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react"
+import { toast } from "react-hot-toast";
 import { Link, useParams } from "react-router-dom";
 import ArtCard from "../components/ArtCard";
 import Error from "../components/Error";
@@ -73,7 +74,7 @@ export default function BrowsePage(){
       setPage(nextPage)
       setLoadingMore(false)
     } catch (error) {
-      // setError(error);
+      toast.error('Could not load more posts...')
       console.log(error)
       setLoadingMore(false)
     }
