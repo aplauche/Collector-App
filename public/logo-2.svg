@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 754 230" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-76.7131,-80.7358)">
+        <g transform="matrix(1,0,0,1,397.119,223.727)">
+            <g transform="matrix(0.784669,0,0,0.784669,-361.006,-188.717)">
+                <text x="405.493px" y="171.628px" style="font-family:'PPHatton-Medium', 'PP Hatton';font-weight:500;font-size:72px;fill:rgb(232,254,153);">V<tspan x="450.277px 470.149px 504.709px 536.461px 579.373px 621.925px " y="171.628px 171.628px 171.628px 171.628px 171.628px 171.628px ">irtual</tspan></text>
+            </g>
+            <g transform="matrix(1.40315,0,0,1.40315,-615.471,-186.519)">
+                <text x="405.493px" y="171.628px" style="font-family:'PPHatton-Light', 'PP Hatton';font-weight:300;font-size:72px;fill:white;">C<tspan x="465.469px 512.773px 561.949px 595.789px 630.493px 699.613px " y="171.628px 171.628px 171.628px 171.628px 171.628px 171.628px ">URATOR</tspan></text>
+            </g>
+            <g transform="matrix(0.757772,0,0,0.757772,147.752,-445.938)">
+                <path d="M-553.073,476.793L-470.471,663.852L-379.325,480.47" style="fill:none;stroke:rgb(232,254,153);stroke-width:11.22px;"/>
+            </g>
+            <g transform="matrix(0.757772,0,0,0.757772,147.752,-445.938)">
+                <path d="M-355.394,595.15C-372.855,639.331 -415.963,670.62 -466.322,670.62C-532.125,670.62 -585.548,617.197 -585.548,551.394C-585.548,485.592 -532.125,432.169 -466.322,432.169C-415.963,432.169 -372.855,463.458 -355.394,507.639L-366.417,507.639C-383.289,469.209 -421.693,442.342 -466.322,442.342C-526.51,442.342 -575.375,491.207 -575.375,551.394C-575.375,611.582 -526.51,660.447 -466.322,660.447C-421.693,660.447 -383.289,633.58 -366.417,595.15L-355.394,595.15Z" style="fill:rgb(232,254,153);"/>
+            </g>
+            <g transform="matrix(0.824304,0,0,0.824304,178.032,-476.658)">
+                <circle cx="-465.304" cy="544.158" r="134.216" style="fill:none;stroke:rgb(232,254,153);stroke-width:10.31px;"/>
+            </g>
+        </g>
+    </g>
+</svg>

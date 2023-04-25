@@ -24,6 +24,9 @@ export default function SinglePage(){
   const [loading, setLoading] = useState(true)
   const [imageBaseUrl, setImageBaseUrl] = useState('')
 
+  const [error, setError] = useState(null)
+
+
   useEffect(() => {
 
     const fetchData = async () => {
@@ -38,8 +41,9 @@ export default function SinglePage(){
         setLoading(false)
 
       } catch (error) {
-        // setError(error); 
+        setError("There was a problem fetching artwork data from the API... Please try again later.");  
         console.log(error)
+        setLoading(false)
       } 
     };
 
@@ -50,9 +54,12 @@ export default function SinglePage(){
 
   if(loading) return  <Loader />
 
+  if(error) return <Error message={error} />
+
+
   return (
     <div className="max-w-[720px] mx-auto bg-white p-8 rounded-lg shadow-md">
-      <div className="bg-primary inline-block px-6 p-1 rounded-md mb-4">{data.date_end} - {data.place_of_origin}</div>
+      <div className="bg-primary inline-block px-6 p-1 rounded-md mb-4">{data.date_end}{data.place_of_origin ? ` - ${data.place_of_origin}` : ''}</div>
       <h1 className="font-bold text-4xl mb-8">{data.title}</h1>
       <img crossOrigin="true" className="" src={`${imageBaseUrl}/${data.image_id}/full/843,/0/default.jpg`} alt={data.title} width={"100%"} />
       <div className="py-8">

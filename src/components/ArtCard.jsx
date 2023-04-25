@@ -25,7 +25,11 @@ export default function ArtCard({item, imageBaseUrl}){
 
       <div  className="bg-white rounded-md flex flex-col shadow-md">
         <div className="cover-image">
-          <img crossOrigin="true" className="rounded-tl-md rounded-tr-md" src={`${imageBaseUrl}/${item.image_id}/full/843,/0/default.jpg`} onError={addImageFallback} alt="" width={"100%"} />
+          {item.image_id ? (
+            <img crossOrigin="true" className="rounded-tl-md rounded-tr-md" src={`${imageBaseUrl}/${item.image_id}/full/843,/0/default.jpg`} onError={addImageFallback} alt="" width={"100%"} />
+          ) : (
+            <img className="rounded-tl-md rounded-tr-md" src="/fallback.jpg" alt="" width={"100%"} />
+          )}
           <div className="pill">{item.date_end}</div>
         </div>
         <div className="p-5 flex flex-col justify-between items-start h-full">
@@ -37,7 +41,7 @@ export default function ArtCard({item, imageBaseUrl}){
 
           <div className="w-full flex justify-between items-center">
             <Link to={`/artwork/${item.id}`} className="primary-button">
-              View Details
+              View Details <span className="sr-only">for {item.title}</span>
             </Link>
             <button onClick={handleCollectionClick}>
               {collection.includes(item.id) ? (

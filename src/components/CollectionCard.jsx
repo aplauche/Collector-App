@@ -20,18 +20,26 @@ export default function CollectionCard({item, imageBaseUrl, isSortable = true}){
     }
   }
 
+  const addImageFallback = (event) => {
+    event.currentTarget.src = '/fallback.jpg';
+  };
+
   return (
     <SortableItem>
       <div className="bg-white rounded-md flex flex-col shadow-md cursor-move collection-card">
         <div className="cover-image">
-          <img crossOrigin="true" className="pointer-events-none" src={`${imageBaseUrl}/${item.image_id}/full/843,/0/default.jpg`} alt="" width={"100%"} />
+          {item.image_id ? (
+            <img crossOrigin="true" className="pointer-events-none" src={`${imageBaseUrl}/${item.image_id}/full/843,/0/default.jpg`} onError={addImageFallback} alt="" width={"100%"} />
+          ) : (
+            <img className="pointer-events-none" src="/fallback.jpg" alt="" width={"100%"} />
+          )}
           <div className="collection-toolbar">
          
               <Link to={`/artwork/${item.id}`} className="block">
-                <HiOutlineEye className="text-3xl text-white" />
+                <HiOutlineEye className="text-2xl text-white hover:text-primary" />
               </Link>
               <button onClick={handleCollectionClick}>
-                <HiOutlineTrash className="text-3xl text-white"/>
+                <HiOutlineTrash className="text-2xl text-white hover:text-red-300"/>
               </button>
        
           </div>

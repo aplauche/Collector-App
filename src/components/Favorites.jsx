@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import useCollectionStore from "../store/collectionStore";
 import ArtCard from "./ArtCard";
 import CollectionPreviewCard from "./CollectionPreviewCard";
+import Error from "./Error";
 import Loader from "./Loader";
 import NoArtwork from "./NoArtwork";
 
@@ -16,6 +17,7 @@ export default function Favorites(){
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
 
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +32,7 @@ export default function Favorites(){
         setLoading(false)
 
       } catch (error) {
-        // setError(error); 
+        setError('There was a problem loading your collection... Please try again later.'); 
         console.log(error)
         setLoading(false)
       } 
@@ -53,7 +55,11 @@ export default function Favorites(){
         <Loader />
       )}
 
-      {!loading && !data.length && (
+      {error && (
+        <Error message={error}/>
+      )}
+
+      {!loading && !error && !data.length && (
         <NoArtwork background="neutral-light" />
       )}
 

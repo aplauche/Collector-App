@@ -1,20 +1,25 @@
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
 
 export default function Sidebar(){
 
   const [navOpen, setNavOpen] = useState(false)
 
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    setNavOpen(false)
+  },[location])
+
   return (
-    <header className="bg-neutral-dark text-white overflow-y-auto flex flex-col justify-between shadow-md">
+    <header className="bg-neutral-dark text-white relative md:overflow-y-auto flex flex-col justify-between shadow-md z-50">
       <div>
         <div className="w-full flex justify-between items-center px-4 md:px-8">
 
           <div className="h-[100px] flex items-center gap-4 ">
-            <img width={50} height={50} src="/logo.svg" alt="" />
-            <div className="text-white font-bold text-xl leading-none">Virtual<br />Curator</div>
+            <img width={180} height={50} src="/logo-2.svg" alt="Virtual Curator Logo" />
           </div>
 
           <div className="block md:hidden">
@@ -26,7 +31,7 @@ export default function Sidebar(){
           </div>
         </div>
 
-        <nav className={`${navOpen ? 'flex' : 'hidden'} w-full md:flex flex-col py-4 border-t border-neutral-600`}>
+        <nav className={`${navOpen ? 'flex translate-y-full' : 'hidden'} w-full absolute bottom-0 left-0 md:translate-y-0 md:relative md:flex flex-col py-4 bg-neutral-dark border-t border-neutral-600 z-50`}>
           <NavLink className="navlink" to="/">
             Home
           </NavLink>

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 import ArtCard from "../components/ArtCard"
 import useCollectionStore from "../store/collectionStore"
 import SortableList, { SortableItem } from "react-easy-sort";
@@ -7,8 +7,8 @@ import CollectionCard from "../components/CollectionCard";
 import Loader from "../components/Loader";
 import PageHeading from "../components/PageHeading";
 import NoArtwork from "../components/NoArtwork";
+import Error from "../components/Error";
 
-// TODO: REFACTOR THIS LOGIC FOR SORTABLE
 
 export default function CollectionPage(){
 
@@ -17,9 +17,10 @@ export default function CollectionPage(){
 
   const [imageBaseUrl, setImageBaseUrl] = useState('')
   const [data, setData] = useState([])
-  const [page, setPage] = useState(1)
-  const [totalPages, setTotalPages] = useState(1)
   const [loading, setLoading] = useState(true)
+
+  const [error, setError] = useState(null)
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +39,7 @@ export default function CollectionPage(){
         setLoading(false)
 
       } catch (error) {
-        // setError(error); 
+        setError('There was a problem loading your collection... Please try again later.'); 
         console.log(error)
         setLoading(false)
       } 
@@ -52,7 +53,7 @@ export default function CollectionPage(){
 
   }, [])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
 
     if(data.length){
       const sorted = collection.map((id) => data.find((item) => item.id === id));
@@ -75,12 +76,14 @@ export default function CollectionPage(){
 
   if(loading) return  <Loader />
 
+  if(error) return <Error message={error} />
+
   return (
     <>
 
         <PageHeading title={"My Collection"} />
 
-        <p className="text-black/50 mb-8 pb-8 border-b border-black/50">Click and drag to arrange your collection.</p>
+        <p className="text-black/75 mb-8 pb-8 border-b border-black/50">Click and drag to arrange your collection.</p>
 
           {data.length > 0 ? (
             <SortableList
@@ -95,11 +98,6 @@ export default function CollectionPage(){
           ) : (
             <NoArtwork />
           )}
-
-
-
-
-
 
     </>
   )

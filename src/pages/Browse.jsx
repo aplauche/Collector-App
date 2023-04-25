@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom";
 import ArtCard from "../components/ArtCard";
+import Error from "../components/Error";
 import Loader from "../components/Loader";
 import LoadMore from "../components/LoadMore";
 import PageHeading from "../components/PageHeading";
@@ -22,6 +23,8 @@ export default function BrowsePage(){
 
   const [loading, setLoading] = useState(true)
   const [loadingMore, setLoadingMore] = useState(false)
+
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,7 +51,7 @@ export default function BrowsePage(){
         setLoading(false)
 
       } catch (error) {
-        // setError(error); 
+        setError("There was a problem fetching artwork data from the API... Please try again later."); 
         console.log(error)
         setLoading(false)
       } 
@@ -79,6 +82,8 @@ export default function BrowsePage(){
 
   if(loading) return  <Loader />
 
+  if(error) return <Error message={error} />
+
   return (
     <div>
 
@@ -86,11 +91,20 @@ export default function BrowsePage(){
 
       <TypesToolbar current={categoryID ? categoryID : 'all'} />
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        { data.map(item => (
-          <ArtCard key={item.id} item={item} imageBaseUrl={imageBaseUrl} />
-        ))}
-      </div>
+
+      {!data.length ? (
+        <div className="py-12 text-center">
+          <p>There is no artwork currently matching this category.</p>
+        </div>
+      ) : (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          { data.map(item => (
+            <ArtCard key={item.id} item={item} imageBaseUrl={imageBaseUrl} />
+          ))}
+        </div>
+      )}
+
+
 
       {page < totalPages && (
         <LoadMore isLoading={loadingMore} handleClick={handleLoadMore} />
