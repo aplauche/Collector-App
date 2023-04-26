@@ -60,6 +60,12 @@
     @apply p-2 top-0 right-0 absolute flex items-center gap-4 bg-black/20 transition-all ;
   }
 
+  .collection-preview:hover {
+    .collection-preview-cover {
+      @apply opacity-100;
+    }
+  }
+
   /* .collection-card:hover .collection-toolbar {
     @apply translate-y-0;
   } */
