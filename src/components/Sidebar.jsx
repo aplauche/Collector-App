@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 export default function Sidebar(){
@@ -19,7 +19,9 @@ export default function Sidebar(){
         <div className="w-full flex justify-between items-center px-4 md:px-8">
 
           <div className="h-[100px] flex items-center gap-4 ">
-            <img width={180} height={50} src="/logo-2.svg" alt="Virtual Curator Logo" />
+            <Link to="/">
+              <img className="cursor-pointer" width={180} height={50} src="/logo-2.png" alt="Virtual Curator Logo" />
+            </Link>
           </div>
 
           <div className="block md:hidden">
