@@ -4,7 +4,7 @@ import { RevolvingDot } from "react-loader-spinner";
 export default function Loader(){
 
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="w-full h-full min-h-[150px] flex items-center justify-center">
       <RevolvingDot
         height="100"
         width="100"

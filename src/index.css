@@ -21,55 +21,46 @@
 
 @layer components {
   .cover-image {
-    width: 100%;
-    position: relative;
-    height: 0;
-    padding-bottom: 75%;
-    overflow: hidden;
-  }
-  .cover-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-  }
+    @apply w-full relative h-0 pb-[75%] overflow-hidden;
 
-  .cover-image.cover-image--square{
-    padding-bottom: 100%;
+    &.cover-image--square{
+      @apply pb-[100%];
+    }
+
+    img {
+      @apply absolute top-0 left-0 w-full h-full object-cover object-center;
+    }
   }
 
   .pill {
-    @apply top-4 py-1 right-4 z-10 bg-neutral-dark text-white rounded-md px-4 absolute
+    @apply top-4 py-1 right-4 z-10 bg-neutral-dark text-white rounded-md px-4 absolute;
   }
 
   .primary-button {
-    @apply font-bold inline-block py-3 px-4 hover:bg-black hover:text-white rounded-md bg-primary text-black  border border-black transition-colors
+    @apply font-bold inline-block py-3 px-4 hover:bg-black hover:text-white rounded-md bg-primary text-black  border border-black transition-colors;
   }
 
   .chip {
-    @apply text-xs sm:text-sm block bg-neutral px-2 sm:px-4 py-1 hover:bg-primary
-  }
+    @apply text-xs sm:text-sm block bg-neutral px-2 sm:px-4 py-1 hover:bg-primary;
 
-  .chip.active {
-    @apply bg-black text-white hover:bg-black hover:text-white rounded-sm
+    &.active {
+      @apply bg-black text-white hover:bg-black hover:text-white rounded-sm;
+    }
   }
 
   .navlink {
-    @apply font-bold py-5 px-8 hover:bg-primary hover:text-black
-  }
+    @apply font-bold py-5 px-8 hover:bg-primary hover:text-black;
 
-  .navlink.active {
-    @apply bg-[#555] hover:bg-[#555] hover:text-white
+    &.active {
+      @apply bg-[#555] hover:bg-[#555] hover:text-white;
+    }
   }
 
   .collection-toolbar {
-    @apply p-2 top-0 right-0 absolute flex items-center gap-4 bg-black/20  transition-all 
+    @apply p-2 top-0 right-0 absolute flex items-center gap-4 bg-black/20 transition-all ;
   }
 
-  .collection-card:hover .collection-toolbar {
-    @apply translate-y-0
-  }
+  /* .collection-card:hover .collection-toolbar {
+    @apply translate-y-0;
+  } */
 }
