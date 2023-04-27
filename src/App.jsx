@@ -35,11 +35,10 @@ function App() {
             <Route index element={
               <RouteTransitionWrapper element={<Home />} />
             } />
-            <Route path="/browse" element={
-              <RouteTransitionWrapper element={<BrowsePage />} />
+            <Route path="/browse" element={<BrowsePage />
             } />
             <Route path="/browse/:id" element={
-              <RouteTransitionWrapper element={<BrowsePage />} />
+              <BrowsePage />
             } />
             <Route path="/artwork/:id" element={
               <RouteTransitionWrapper element={<Single />} />
