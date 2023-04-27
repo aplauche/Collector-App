@@ -1,6 +1,5 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { HiStar } from "react-icons/hi"
 import { useParams } from "react-router-dom"
 import Loader from "../components/Loader"
 import useCollectionStore from "../store/collectionStore"

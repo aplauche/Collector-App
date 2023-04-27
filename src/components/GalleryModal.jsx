@@ -12,7 +12,7 @@ export default function GalleryModal({open, toggle, data}){
       {open && (
         <motion.div initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}  onClick={() => toggle(false)} className="shade bg-black/90 fixed top-0 left-0 h-screen w-screen z-[60] overflow-y-auto py-[100px] px-8">
+          exit={{ opacity: 0 }}  onClick={() => toggle(false)} className="shade bg-black/90 fixed top-0 left-0 h-screen w-screen z-[60] overflow-y-auto py-[80px] px-12">
           <div className="max-w-[900px] mx-auto" onClick={e => {e.stopPropagation()}}>
               {data.length > 0 && (
                   <ResponsiveMasonry
@@ -26,7 +26,7 @@ export default function GalleryModal({open, toggle, data}){
                 </ResponsiveMasonry>
               )}
           </div>
-          <div className="bg-black/50 p-4 fixed top-8 right-8 rounded-full">
+          <div className="bg-black/50 md:p-4 fixed top-4 right-4 p-2 md:top-6 md:right-8 rounded-full">
           <HiOutlineX className=" text-white text-3xl cursor-pointer " onClick={() => toggle(false)} />
           </div>
         </motion.div>

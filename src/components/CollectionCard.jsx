@@ -9,11 +9,8 @@ export default function CollectionCard({item}){
 
   const {collection, addToCollection, removeFromCollection} = useCollectionStore()
 
-  console.log(collection)
-
   const handleCollectionClick = () => {
     if(collection.includes(item.id)){
-      console.log('remove')
       removeFromCollection(item.id)
     } else {
       addToCollection(item.id)

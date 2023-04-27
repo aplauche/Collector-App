@@ -7,15 +7,19 @@
   html {
     font-family: "Montreal", sans-serif;
   }
-  .main-content {
+  .app-container {
     display: grid;
     grid-template-columns: 300px 1fr;
   }
 
   @media(max-width: 767px){
-    .main-content {
+    .app-container {
       display: block;
     }
+  }
+
+  main {
+    min-height: calc(100vh - 100px);
   }
 }
 
