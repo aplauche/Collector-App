@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import useCollectionStore from "../store/collectionStore";
 import { HiStar, HiOutlineStar } from "react-icons/hi";
 import { SortableItem } from "react-easy-sort";
+import {imageBaseUrl} from '../data/constants'
 
-
-export default function ArtCard({item, imageBaseUrl}){
+export default function ArtCard({item}){
 
 
   const {collection, addToCollection, removeFromCollection} = useCollectionStore()

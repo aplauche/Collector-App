@@ -13,7 +13,6 @@ export default function Favorites(){
 
   const { collection } = useCollectionStore()
 
-  const [imageBaseUrl, setImageBaseUrl] = useState('')
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
 
@@ -24,8 +23,6 @@ export default function Favorites(){
       try {
 
         const { data: res } = await axios.get(`https://api.artic.edu/api/v1/artworks?ids=${collection.slice(0,3).join(',')}&fields=id,title,image_id,date_end,place_of_origin,artist_display`);
-
-        setImageBaseUrl(res.config.iiif_url)      
 
         setData(res.data);
 
@@ -67,7 +64,7 @@ export default function Favorites(){
       {data.length > 0 && (
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {data.map(item => (
-            <CollectionPreviewCard key={item.id} item={item} imageBaseUrl={imageBaseUrl} />
+            <CollectionPreviewCard key={item.id} item={item} />
           ))}
          
             <Link to="/collection" className="min-h-[100px] bg-neutral rounded-md font-bold  flex justify-center items-center  hover:bg-primary text-center" >

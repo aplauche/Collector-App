@@ -1,9 +1,9 @@
 import { HiOutlineEye } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import {imageBaseUrl} from '../data/constants'
 
-export default function CollectionPreviewCard({item, imageBaseUrl}){
 
-
+export default function CollectionPreviewCard({item}){
 
   const addImageFallback = (event) => {
     event.currentTarget.src = '/fallback.jpg';

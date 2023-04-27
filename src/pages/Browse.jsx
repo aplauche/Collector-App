@@ -17,7 +17,6 @@ export default function BrowsePage(){
 
   const [category, setCategory] = useState(false)
 
-  const [imageBaseUrl, setImageBaseUrl] = useState('')
   const [data, setData] = useState([])
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
@@ -34,7 +33,6 @@ export default function BrowsePage(){
 
         const { data: res } = await axios.get(`https://api.artic.edu/api/v1/artworks${categoryID !== undefined ? `/search?query[term][artwork_type_id]=${categoryID}&` : '?'}fields=id,title,image_id,date_end,place_of_origin,artist_display&limit=12`);
 
-        setImageBaseUrl(res.config.iiif_url) 
 
         setTotalPages(res.pagination.total_pages)
 
@@ -100,7 +98,7 @@ export default function BrowsePage(){
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           { data.map(item => (
-            <ArtCard key={item.id} item={item} imageBaseUrl={imageBaseUrl} />
+            <ArtCard key={item.id} item={item} />
           ))}
         </div>
       )}

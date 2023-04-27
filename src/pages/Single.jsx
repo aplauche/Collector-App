@@ -4,7 +4,7 @@ import { HiStar } from "react-icons/hi"
 import { useParams } from "react-router-dom"
 import Loader from "../components/Loader"
 import useCollectionStore from "../store/collectionStore"
-
+import {imageBaseUrl} from '../data/constants'
 
 export default function SinglePage(){
 
@@ -22,7 +22,6 @@ export default function SinglePage(){
 
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
-  const [imageBaseUrl, setImageBaseUrl] = useState('')
 
   const [error, setError] = useState(null)
 
@@ -33,8 +32,6 @@ export default function SinglePage(){
       try {
 
         const { data: res } = await axios.get(`https://api.artic.edu/api/v1/artworks/${artID}?fields=id,title,image_id,date_end,place_of_origin,artist_display,exhibition_history`);
-
-        setImageBaseUrl(res.config.iiif_url) 
 
         setData(res.data);
 

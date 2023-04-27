@@ -49,7 +49,7 @@
   }
 
   .navlink {
-    @apply font-bold py-5 px-8 hover:bg-primary hover:text-black;
+    @apply font-bold py-5 px-8 hover:bg-primary hover:text-black transition-all;
 
     &.active {
       @apply bg-[#555] hover:bg-[#555] hover:text-white;
@@ -57,7 +57,7 @@
   }
 
   .collection-toolbar {
-    @apply p-2 top-0 right-0 absolute flex items-center gap-4 bg-black/20 transition-all ;
+    @apply p-2 top-0 right-0 absolute flex items-center gap-4 bg-black/20 transition-all rounded-tr-md ;
   }
 
   .collection-preview:hover {

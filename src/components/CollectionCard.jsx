@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import useCollectionStore from "../store/collectionStore";
 import { HiStar, HiOutlineStar, HiOutlineExternalLink, HiOutlineTrash, HiOutlineEye } from "react-icons/hi";
 import { SortableItem } from "react-easy-sort";
+import {imageBaseUrl} from '../data/constants'
 
-
-export default function CollectionCard({item, imageBaseUrl, isSortable = true}){
+export default function CollectionCard({item}){
 
 
   const {collection, addToCollection, removeFromCollection} = useCollectionStore()
@@ -26,12 +26,12 @@ export default function CollectionCard({item, imageBaseUrl, isSortable = true}){
 
   return (
     <SortableItem>
-      <div className="bg-white rounded-md flex flex-col shadow-md cursor-move collection-card">
+      <div className="rounded-md shadow-md cursor-move collection-card">
         <div className="cover-image">
           {item.image_id ? (
-            <img crossOrigin="true" className="pointer-events-none" src={`${imageBaseUrl}/${item.image_id}/full/843,/0/default.jpg`} onError={addImageFallback} alt="" width={"100%"} />
+            <img crossOrigin="true" className="pointer-events-none rounded-md" src={`${imageBaseUrl}/${item.image_id}/full/843,/0/default.jpg`} onError={addImageFallback} alt="" width={"100%"} />
           ) : (
-            <img className="pointer-events-none" src="/fallback.jpg" alt="" width={"100%"} />
+            <img className="pointer-events-none rounded-md" src="/fallback.jpg" alt="" width={"100%"} />
           )}
           <div className="collection-toolbar">
          
