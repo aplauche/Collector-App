@@ -33,8 +33,9 @@ Collections are stored in local storage so it will persist and be unique based o
  - **react-responsive-masonry** - A solution for a nice masonry style grid display when using "gallery" view
  - **react-hot-toast** - Minimal way to add some interactive confirmation and error messages quickly
  - **react-icons** - Just a basic icon package
- - react-loader-spinner - Basic loader, for a production project would likely make a custom branded loader instead
+ - **react-loader-spinner** - Basic loader, for a production project would likely make a custom branded loader instead
  - **zustand** - Minimal state management that plays nice with local storage - picked for ease of implementation, particularly with the persist plugin.
+ - **framer-motion** - Provide a smooth fade in for gallery modal -  a bit overkill, but industry standard for React animation.
 
 ## Dev tools
 
