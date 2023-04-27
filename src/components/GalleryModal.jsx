@@ -10,9 +10,13 @@ export default function GalleryModal({open, toggle, data}){
   return (
     <AnimatePresence>
       {open && (
-        <motion.div initial={{ opacity: 0 }}
+        <motion.div 
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}  onClick={() => toggle(false)} className="shade bg-black/90 fixed top-0 left-0 h-screen w-screen z-[60] overflow-y-auto py-[80px] px-12">
+          exit={{ opacity: 0 }}  
+          onClick={() => toggle(false)} 
+          className="shade bg-black/90 fixed top-0 left-0 h-screen w-screen z-[60] overflow-y-auto py-[80px] px-12"
+        >
           <div className="max-w-[900px] mx-auto" onClick={e => {e.stopPropagation()}}>
               {data.length > 0 && (
                   <ResponsiveMasonry
