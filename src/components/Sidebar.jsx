@@ -20,7 +20,7 @@ export default function Sidebar(){
 
           <div className="h-[100px] flex items-center gap-4 ">
             <Link to="/">
-              <img className="cursor-pointer" width={180} height={50} src="/logo-2.png" alt="Virtual Curator Logo" />
+              <img className="cursor-pointer" width={180} height={50} src="/logo.png" alt="Virtual Curator Logo" />
             </Link>
           </div>
 
