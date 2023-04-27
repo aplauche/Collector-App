@@ -1,17 +1,14 @@
 import axios from "axios"
 import { useEffect, useLayoutEffect, useState } from "react"
 import useCollectionStore from "../store/collectionStore"
-import SortableList, { SortableItem } from "react-easy-sort";
+import SortableList from "react-easy-sort";
 import CollectionCard from "../components/CollectionCard";
 import Loader from "../components/Loader";
 import PageHeading from "../components/PageHeading";
 import NoArtwork from "../components/NoArtwork";
 import Error from "../components/Error";
-import GalleryCard from "../components/GalleryCard";
-import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
-import { HiOutlinePhotograph, HiOutlineX } from "react-icons/hi";
+import { HiOutlinePhotograph } from "react-icons/hi";
 import GalleryModal from "../components/GalleryModal";
-
 
 export default function CollectionPage(){
 
@@ -104,6 +101,8 @@ export default function CollectionPage(){
             <NoArtwork />
           )}
 
+
+        
         <GalleryModal open={showGallery} toggle={setShowGallery} data={data}  />
         
     </>
