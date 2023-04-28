@@ -33,7 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={
-              <RouteTransitionWrapper element={<Home />} />
+              <Home />
             } />
             <Route path="/browse" element={<BrowsePage />
             } />
@@ -41,13 +41,13 @@ function App() {
               <BrowsePage />
             } />
             <Route path="/artwork/:id" element={
-              <RouteTransitionWrapper element={<Single />} />
+              <Single />
             } />
             <Route path="/collection" element={
-              <RouteTransitionWrapper element={<CollectionPage />} />
+              <CollectionPage />
             } />
             <Route path="*" element={
-              <RouteTransitionWrapper element={<NotFound />} />
+              <NotFound />
             } />
           </Route>
         </Routes>

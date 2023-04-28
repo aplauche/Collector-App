@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom"
 import Loader from "../components/Loader"
 import useCollectionStore from "../store/collectionStore"
 import {imageBaseUrl} from '../data/constants'
+import useArtwork from "../hooks/useArtwork"
+
 
 export default function SinglePage(){
 
@@ -19,33 +21,37 @@ export default function SinglePage(){
 
   const { id:artID } = useParams()
 
-  const [data, setData] = useState({})
-  const [loading, setLoading] = useState(true)
+  // const [data, setData] = useState({})
+  // const [loading, setLoading] = useState(true)
+  // const [error, setError] = useState(null)
 
-  const [error, setError] = useState(null)
+  const {data, loading, error} = useArtwork(artID)
 
+  const addImageFallback = (event) => {
+    event.currentTarget.src = '/fallback.jpg';
+  };
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const fetchData = async () => {
-      try {
+  //   const fetchData = async () => {
+  //     try {
 
-        const { data: res } = await axios.get(`https://api.artic.edu/api/v1/artworks/${artID}?fields=id,title,image_id,date_end,place_of_origin,artist_display,exhibition_history`);
+  //       const { data: res } = await axios.get(`https://api.artic.edu/api/v1/artworks/${artID}?fields=id,title,image_id,date_end,place_of_origin,artist_display,exhibition_history`);
 
-        setData(res.data);
+  //       setData(res.data);
 
-        setLoading(false)
+  //       setLoading(false)
 
-      } catch (error) {
-        setError("There was a problem fetching artwork data from the API... Please try again later.");  
-        console.log(error)
-        setLoading(false)
-      } 
-    };
+  //     } catch (error) {
+  //       setError("There was a problem fetching artwork data from the API... Please try again later.");  
+  //       console.log(error)
+  //       setLoading(false)
+  //     } 
+  //   };
 
-    fetchData();
+  //   fetchData();
 
-  },[])
+  // },[])
 
 
   if(loading) return  <Loader />
@@ -57,7 +63,11 @@ export default function SinglePage(){
     <div className="max-w-[720px] mx-auto bg-white p-8 rounded-lg shadow-md">
       <div className="bg-primary inline-block px-6 p-1 rounded-md mb-4">{data.date_end}{data.place_of_origin ? ` - ${data.place_of_origin}` : ''}</div>
       <h1 className="font-bold text-4xl mb-8">{data.title}</h1>
-      <img crossOrigin="true" className="" src={`${imageBaseUrl}/${data.image_id}/full/843,/0/default.jpg`} alt={data.title} width={"100%"} />
+      {data.image_id ? (
+        <img crossOrigin="true" className="" src={`${imageBaseUrl}/${data.image_id}/full/843,/0/default.jpg`} onError={addImageFallback} alt="" width={"100%"} />
+      ) : (
+        <img className="" src="/fallback.jpg" alt="" width={"100%"} />
+      )}
       <div className="py-8">
         <p className="mb-8">{data.artist_display}</p>
         {data.exhibition_history && (
