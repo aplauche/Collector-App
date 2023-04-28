@@ -3,20 +3,31 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 
 
-const useCollection = (collection) => {
+const useCollection = (collection, previewMode=false) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
+
+  let url = `https://api.artic.edu/api/v1/artworks?ids=${collection.join(',')}&fields=id,title,image_id,date_end,place_of_origin,artist_display`
+  
+  if(previewMode){
+    url = `https://api.artic.edu/api/v1/artworks?ids=${collection.slice(0,3).join(',')}&fields=id,title,image_id,date_end,place_of_origin,artist_display`
+  }
+
 
   useEffect(() => {
     setLoading(true);
     const fetchData = async () => {
       try {
-        const { data:res } = await axios.get(`https://api.artic.edu/api/v1/artworks?ids=${collection.join(',')}&fields=id,title,image_id,date_end,place_of_origin,artist_display`);
+        const { data:res } = await axios.get(url);
 
-        const sorted = collection.map((id) => res.data.find((item) => item.id === id));
+        if(previewMode) {
+          setData(res.data)
+        } else {
+          const sorted = collection.map((id) => res.data.find((item) => item.id === id));
+          setData(sorted);
+        }
 
-        setData(sorted);
         setLoading(false);
 
       } catch (error) {
