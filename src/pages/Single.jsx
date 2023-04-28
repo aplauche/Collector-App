@@ -21,37 +21,11 @@ export default function SinglePage(){
 
   const { id:artID } = useParams()
 
-  // const [data, setData] = useState({})
-  // const [loading, setLoading] = useState(true)
-  // const [error, setError] = useState(null)
-
   const {data, loading, error} = useArtwork(artID)
 
   const addImageFallback = (event) => {
     event.currentTarget.src = '/fallback.jpg';
   };
-
-  // useEffect(() => {
-
-  //   const fetchData = async () => {
-  //     try {
-
-  //       const { data: res } = await axios.get(`https://api.artic.edu/api/v1/artworks/${artID}?fields=id,title,image_id,date_end,place_of_origin,artist_display,exhibition_history`);
-
-  //       setData(res.data);
-
-  //       setLoading(false)
-
-  //     } catch (error) {
-  //       setError("There was a problem fetching artwork data from the API... Please try again later.");  
-  //       console.log(error)
-  //       setLoading(false)
-  //     } 
-  //   };
-
-  //   fetchData();
-
-  // },[])
 
 
   if(loading) return  <Loader />
