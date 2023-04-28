@@ -18,8 +18,8 @@ const useArtwork = (id) => {
         setLoading(false);
 
       } catch (error) {
-
-        setError(error);
+        console.log(error)
+        setError("There was a problem fetching artwork data from the API... Please try again later.");
         setLoading(false);
 
       }
