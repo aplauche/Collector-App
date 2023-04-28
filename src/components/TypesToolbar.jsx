@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useLayoutEffect, useState } from "react"
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { Link } from "react-router-dom";

@@ -1,9 +1,6 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useCollection from "../hooks/useCollection";
 import useCollectionStore from "../store/collectionStore";
-import ArtCard from "./ArtCard";
 import CollectionPreviewCard from "./CollectionPreviewCard";
 import Error from "./Error";
 import Loader from "./Loader";
@@ -15,37 +12,6 @@ export default function Favorites(){
   const { collection } = useCollectionStore()
 
   const {data, loading, error} = useCollection(collection, true)
-
-
-  // const [data, setData] = useState([])
-  // const [loading, setLoading] = useState(true)
-
-  // const [error, setError] = useState(null)
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-
-  //       const { data: res } = await axios.get(`https://api.artic.edu/api/v1/artworks?ids=${collection.slice(0,3).join(',')}&fields=id,title,image_id,date_end,place_of_origin,artist_display`);
-
-  //       setData(res.data);
-
-  //       setLoading(false)
-
-  //     } catch (error) {
-  //       setError('There was a problem loading your collection... Please try again later.'); 
-  //       console.log(error)
-  //       setLoading(false)
-  //     } 
-  //   };
-
-  //   if(collection.length){
-  //     fetchData();
-  //   } else {
-  //     setLoading(false)
-  //   }
-
-  // }, [])
 
 
   return (

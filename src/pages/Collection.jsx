@@ -1,4 +1,3 @@
-import axios from "axios"
 import { useEffect, useLayoutEffect, useState } from "react"
 import useCollectionStore from "../store/collectionStore"
 import SortableList from "react-easy-sort";
