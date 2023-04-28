@@ -17,45 +17,7 @@ export default function CollectionPage(){
 
   const {data, loading, error, setData} = useCollection(collection)
 
-  // const [sorted, setSorted] = useState([])
-
-  // console.log(rawData)
-  // const [data, setData] = useState(collection.map((id) => rawData.find((item) => item.id === id)))
-
-  // const [data, setData] = useState([])
-  // const [loading, setLoading] = useState(true)
-
   const [showGallery, setShowGallery] = useState(false)
-
-  //const [error, setError] = useState(null)
-
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-
-  //       const { data: res } = await axios.get(`https://api.artic.edu/api/v1/artworks?ids=${collection.join(',')}&fields=id,title,image_id,date_end,place_of_origin,artist_display`);
-        
-  //       const sorted = collection.map((id) => res.data.find((item) => item.id === id));
-
-  //       setData(sorted);
-
-  //       setLoading(false)
-
-  //     } catch (error) {
-  //       setError('There was a problem loading your collection... Please try again later.'); 
-  //       console.log(error)
-  //       setLoading(false)
-  //     } 
-  //   };
-
-  //   if(collection.length){
-  //     fetchData();
-  //   } else {
-  //     setLoading(false)
-  //   }
-
-  // }, [])
 
   useLayoutEffect(() => {
 

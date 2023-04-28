@@ -1,31 +1,19 @@
 import axios from "axios";
-import { useEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import useTypes from "../hooks/useTypes";
 import Error from "./Error";
 
 
 export default function TypesToolbar({current = null}){
 
-  const [types, setTypes] = useState([])
+
   const [open, setOpen] = useState(false)
-  
-  const [error, setError] = useState(null)
 
-  useEffect(() => {
-    const fetchTypes = async () => {
-      try {
-        const { data } = await axios.get(`https://api.artic.edu/api/v1/artwork-types?limit=50`);
-        setTypes(data.data);
-      } catch (error) {
-        setError('There was a problem loading artwork categories... Please try again later.');
-        console.log(error)
-      }
-    };
-    fetchTypes();
-  }, [])
+  const {types, error, loading} = useTypes()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setOpen(false)
   }, [current])
 
