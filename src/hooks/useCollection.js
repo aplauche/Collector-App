@@ -16,8 +16,9 @@ const useCollection = (collection, previewMode=false) => {
 
 
   useEffect(() => {
-    setLoading(true);
+
     const fetchData = async () => {
+      setLoading(true);
       try {
         const { data:res } = await axios.get(url);
 
